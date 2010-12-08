@@ -12,8 +12,8 @@ require 'rake'
 require 'jeweler'
 Jeweler::Tasks.new do |gem|
   # gem is a Gem::Specification... see http://docs.rubygems.org/read/chapter/20 for more options
-  gem.name = "signify"
-  gem.homepage = "http://github.com/steveh/signify"
+  gem.name = "sigil"
+  gem.homepage = "http://github.com/steveh/sigil"
   gem.license = "MIT"
   gem.summary = "Signs and verifies a set of parameters"
   gem.description = "Signs and verifies a set of parameters"
@@ -45,7 +45,7 @@ Rake::RDocTask.new do |rdoc|
   version = File.exist?('VERSION') ? File.read('VERSION') : ""
 
   rdoc.rdoc_dir = 'rdoc'
-  rdoc.title = "signify #{version}"
+  rdoc.title = "sigil #{version}"
   rdoc.rdoc_files.include('README*')
   rdoc.rdoc_files.include('lib/**/*.rb')
 end

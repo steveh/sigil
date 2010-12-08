@@ -4,7 +4,7 @@
 # -*- encoding: utf-8 -*-
 
 Gem::Specification.new do |s|
-  s.name = %q{signify}
+  s.name = %q{sigil}
   s.version = "0.1.0"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
@@ -14,21 +14,23 @@ Gem::Specification.new do |s|
   s.email = %q{steve@seven.net.nz}
   s.files = [
     ".document",
+    "Gemfile",
+    "Gemfile.lock",
     "Rakefile",
     "VERSION",
-    "lib/signify.rb",
-    "lib/signify/base.rb",
-    "signify.gemspec",
-    "spec/signify/base_spec.rb",
+    "lib/sigil.rb",
+    "lib/sigil/base.rb",
+    "sigil.gemspec",
+    "spec/sigil/base_spec.rb",
     "spec/spec_helper.rb"
   ]
-  s.homepage = %q{http://github.com/steveh/signify}
+  s.homepage = %q{http://github.com/steveh/sigil}
   s.licenses = ["MIT"]
   s.require_paths = ["lib"]
   s.rubygems_version = %q{1.3.7}
   s.summary = %q{Signs and verifies a set of parameters}
   s.test_files = [
-    "spec/signify/base_spec.rb",
+    "spec/sigil/base_spec.rb",
     "spec/spec_helper.rb"
   ]
 
@@ -39,26 +41,29 @@ Gem::Specification.new do |s|
     if Gem::Version.new(Gem::VERSION) >= Gem::Version.new('1.2.0') then
       s.add_runtime_dependency(%q<activesupport>, [">= 3.0.0"])
       s.add_runtime_dependency(%q<i18n>, [">= 0"])
-      s.add_development_dependency(%q<rake>, [">= 0"])
-      s.add_development_dependency(%q<rspec>, [">= 2.1.0"])
-      s.add_development_dependency(%q<jeweler>, [">= 0"])
+      s.add_development_dependency(%q<rspec>, ["~> 2.1.0"])
+      s.add_development_dependency(%q<bundler>, ["~> 1.0.0"])
+      s.add_development_dependency(%q<jeweler>, ["~> 1.5.1"])
+      s.add_development_dependency(%q<rcov>, [">= 0"])
       s.add_development_dependency(%q<rspec>, [">= 2.1.0"])
       s.add_development_dependency(%q<activesupport>, [">= 3.0.0"])
     else
       s.add_dependency(%q<activesupport>, [">= 3.0.0"])
       s.add_dependency(%q<i18n>, [">= 0"])
-      s.add_dependency(%q<rake>, [">= 0"])
-      s.add_dependency(%q<rspec>, [">= 2.1.0"])
-      s.add_dependency(%q<jeweler>, [">= 0"])
+      s.add_dependency(%q<rspec>, ["~> 2.1.0"])
+      s.add_dependency(%q<bundler>, ["~> 1.0.0"])
+      s.add_dependency(%q<jeweler>, ["~> 1.5.1"])
+      s.add_dependency(%q<rcov>, [">= 0"])
       s.add_dependency(%q<rspec>, [">= 2.1.0"])
       s.add_dependency(%q<activesupport>, [">= 3.0.0"])
     end
   else
     s.add_dependency(%q<activesupport>, [">= 3.0.0"])
     s.add_dependency(%q<i18n>, [">= 0"])
-    s.add_dependency(%q<rake>, [">= 0"])
-    s.add_dependency(%q<rspec>, [">= 2.1.0"])
-    s.add_dependency(%q<jeweler>, [">= 0"])
+    s.add_dependency(%q<rspec>, ["~> 2.1.0"])
+    s.add_dependency(%q<bundler>, ["~> 1.0.0"])
+    s.add_dependency(%q<jeweler>, ["~> 1.5.1"])
+    s.add_dependency(%q<rcov>, [">= 0"])
     s.add_dependency(%q<rspec>, [">= 2.1.0"])
     s.add_dependency(%q<activesupport>, [">= 3.0.0"])
   end
