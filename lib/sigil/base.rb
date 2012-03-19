@@ -1,9 +1,11 @@
 module Sigil
   class Base
+
     attr_reader :params, :key, :signature
 
     def initialize(params, key)
       raise Sigil::Error, "Params must be a Hash" unless params.kind_of?(Hash)
+
       @params = params.to_options!
       @key = key.to_s
       @signature = nil
@@ -17,6 +19,7 @@ module Sigil
       unless @signature
         @signature = self.class.sign(self.to_query, @key).to_s
       end
+
       @signature
     end
 
@@ -31,5 +34,14 @@ module Sigil
 
       signature == provided_signature
     end
+
+    def verify!(provided_signature)
+      verified = verify(provided_signature)
+
+      raise Sigil::Error, "Signature does not match" unless verified
+
+      true
+    end
+
   end
 end

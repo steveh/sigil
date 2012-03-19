@@ -1,3 +1,4 @@
 module Sigil
-  class Error < StandardError; end
+  class Error < StandardError
+  end
 end
