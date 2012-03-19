@@ -59,21 +59,25 @@ describe Sigil::Base do
   describe "input verification convenience methods" do
 
     it "should verify against a provided signature" do
-      @sigil.verify(@signature).should == true
+      @sigil.verify(@signature).should be_true
+      @sigil.verify!(@signature).should be_true
     end
 
     it "should verify against a wrong signature" do
-      @sigil.verify("abc").should == false
+      @sigil.verify("abc").should be_false
+      lambda { @sigil.verify!("abc") }.should raise_error(Sigil::Error, /Signature does not match/)
     end
 
     it "should raise an error if no params present" do
       sigil = Sigil::Base.new({}, @key)
-      lambda { sigil.verify("abc") }.should raise_error(Sigil::Error, /Params not set/)
+      sigil.verify("abc").should be_false
+      lambda { sigil.verify!("abc") }.should raise_error(Sigil::Error, /Params not set/)
     end
 
     it "should raise an error if no signature specified" do
       sigil = Sigil::Base.new(@params, @key)
-      lambda { sigil.verify("") }.should raise_error(Sigil::Error, /Signature not set/)
+      sigil.verify("").should be_false
+      lambda { sigil.verify!("") }.should raise_error(Sigil::Error, /Signature not set/)
     end
 
   end

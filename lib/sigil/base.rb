@@ -29,16 +29,15 @@ module Sigil
     end
 
     def verify(provided_signature)
-      raise Sigil::Error, "Params not set" if params.empty?
-      raise Sigil::Error, "Signature not set" if provided_signature.blank?
-
-      signature == provided_signature
+      verify!(provided_signature)
+    rescue Sigil::Error
+      false
     end
 
     def verify!(provided_signature)
-      verified = verify(provided_signature)
-
-      raise Sigil::Error, "Signature does not match" unless verified
+      raise Sigil::Error, "Params not set" if params.empty?
+      raise Sigil::Error, "Signature not set" if provided_signature.blank?
+      raise Sigil::Error, "Signature does not match" unless signature == provided_signature
 
       true
     end
